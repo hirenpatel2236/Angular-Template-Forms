@@ -37,9 +37,9 @@
         <div class="form-group">
             <label for="subscriptionType">Subscription Type</label>
             <select name="subscriptionType" id="subscriptionType" class="form-control" [(ngModel)]="userSettings.subscriptionType" >
-                <option>Monthly</option>
-                <option>Annual</option>
-                <option>Lifetime</option>
+                <option *ngFor="let type of subscriptionTypes | async">
+                    {{ type }}
+                </option>
             </select>
         </div>
 
@@ -47,12 +47,22 @@
             <label for="notes">Notes</label>
             <textarea class="form-control" name="notes" id="notes" rows="3" [(ngModel)]="userSettings.notes"></textarea>
         </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" name="singleValue"
+                [(ngModel)]="userSettings.singleValue" btnCheckbox btnCheckboxTrue="On" btnCheckboxFalse="Off">
+                {{userSettings.singleValue}}
+            </button>
+           
+        </div>
         
+        <div [hidden]="!postError" class="alert alert-danger">
+            {{postErrorMessage}}
+        </div>
         <button class="btn btn-primary">Send</button>
     </form>
-    <!-- <h3>
+    <h3>
         {{ form.value | json}}
-    </h3> -->
-    <h3>{{originalUserSettings | json}}</h3>
-    <h3>{{userSettings | json}}</h3>
+    </h3>
+    <!-- <h3>{{originalUserSettings | json}}</h3>
+    <h3>{{userSettings | json}}</h3> -->
 </div>
