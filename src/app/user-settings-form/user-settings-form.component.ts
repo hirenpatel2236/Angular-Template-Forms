@@ -17,7 +17,10 @@ export class UserSettingsFormComponent implements OnInit {
     interfaceStyle: 'dark',
     subscriptionType: 'Annual',
     notes: 'some notes here...',
-    singleValue: 'On'
+    singleValue: 'On',
+    startDate: new Date(2023,6,24),
+    startTime: new Date(),
+    ratingPoint: 0
   }
 
   userSettings: UserSettings = { ...this.originalUserSettings }

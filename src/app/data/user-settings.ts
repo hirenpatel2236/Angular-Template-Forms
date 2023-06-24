@@ -5,4 +5,7 @@ export interface UserSettings{
     subscriptionType: string,
     notes: string,
     singleValue: string
+    startDate: Date,
+    startTime: Date,
+    ratingPoint: number
 }
